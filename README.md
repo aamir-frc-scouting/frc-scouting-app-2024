@@ -220,11 +220,11 @@ This Java/Android + QR-to-Excel pipeline worked reliably for the 2024 season, bu
 
 **2025 Rewrite (Flutter + SQL):**
 
-In 2025, I rebuilt the entire scouting system in **Dart/Flutter** with a local **SQLite** database:
-- Cross-platform (Android + iOS from single codebase)
-- Local database eliminates QR scanning workflow
-- Real-time data sync capabilities
-- Offline-first architecture with persistent storage
+In 2025, I rebuilt the scouting apps in **Dart/Flutter** with **SQLite** for data storage:
+- Cross-platform Flutter apps (one codebase for Android + iOS)
+- Same QR transfer workflow, but scanned into a Python/customtkinter desktop intake app that validates each record
+- SQLite instead of Excel tabs, so strategy questions become SQL queries
+- Offline-first architecture with persistent storage on device
 
 See the [FRC Scouting Organization](https://github.com/aamir-frc-scouting) for the 2025 apps and other scouting tools.
 
