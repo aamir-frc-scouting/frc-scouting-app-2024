@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
+import com.android.resources.ScreenOrientation
 import com.example.qrgenearator.QRGContents
 import com.example.qrgenearator.QRGEncoder
 import com.example.scouting_app_2024.R
@@ -15,7 +16,7 @@ class ScreenshotTest {
 
     @get:Rule
     val paparazzi = Paparazzi(
-        deviceConfig = DeviceConfig.NEXUS_10
+        deviceConfig = DeviceConfig.NEXUS_10.copy(orientation = ScreenOrientation.PORTRAIT)
     )
 
     @Test
