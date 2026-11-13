@@ -8,13 +8,22 @@ Android match-scouting app for FRC Team 1730 (Team Driven), used during the 2024
 ![targetSdk](https://img.shields.io/badge/targetSdk-32-blue)
 ![Gradle](https://img.shields.io/badge/Gradle-8.5.2-02303A?style=flat&logo=gradle&logoColor=white)
 
-## Screenshot
+## Screenshots
 
-<p align="center">
-  <img src="docs/screenshots/main_activity.png" alt="Main Activity - Match Entry" width="300"/>
-</p>
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/01_main.png" width="180"/><br/><b>Pre-Match</b></td>
+    <td align="center"><img src="docs/screenshots/02_auto.png" width="180"/><br/><b>Autonomous</b></td>
+    <td align="center"><img src="docs/screenshots/03_tele.png" width="180"/><br/><b>Teleoperated</b></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/04_stage.png" width="180"/><br/><b>Endgame</b></td>
+    <td align="center"><img src="docs/screenshots/05_popup.png" width="180"/><br/><b>Confirmation</b></td>
+    <td align="center"><img src="docs/screenshots/06_qr.png" width="180"/><br/><b>QR Output</b></td>
+  </tr>
+</table>
 
-*Main activity showing scout entry form with driver station selection and field position overlay.*
+<sub>Screenshots rendered via <a href="https://github.com/cashapp/paparazzi">Paparazzi</a> layout snapshot tests. The QR code contains sample data for team 99901.</sub>
 
 ## Features
 
@@ -170,11 +179,11 @@ QRGenerator/                   # ZXing-based QR encoding module
 
 ### Prerequisites
 
-- Java 8+ (tested with OpenJDK 21)
+- Java 17+ (JDK 17 or JDK 21)
 - Android SDK with:
   - Platform SDK 34
   - Build Tools 34.0.0
-- Gradle 8.7 (wrapper included)
+- Gradle 8.6 (wrapper included)
 
 ### Build
 
