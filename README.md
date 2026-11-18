@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/)
-[![Java](https://img.shields.io/badge/Java_17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://docs.oracle.com/en/java/javase/17/)
+[![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://docs.oracle.com/en/java/)
 [![API](https://img.shields.io/badge/API-21+-brightgreen?style=for-the-badge)](https://developer.android.com/about/versions/lollipop)
 [![FRC](https://img.shields.io/badge/FRC-2024_Crescendo-F57E25?style=for-the-badge)](https://firstfrc.blob.core.windows.net/frc2024/Manual/2024GameManual.pdf)
 
@@ -17,9 +17,11 @@
 
 ## Background
 
-As a sophomore on [FRC Team 1730 (Team Driven)](https://www.thebluealliance.com/team/1730/2023), I took over as the solo developer of the scouting app. My freshman year I'd served as a scout lead under seniors Heath Crump and Caden Findlay — [Newton Division winners](https://www.thebluealliance.com/event/2022new) who reached [Einstein](https://www.thebluealliance.com/event/2022cmptx). I learned the ropes from them, and sophomore year I built the Android match app myself: Java, XML layouts, QR encoding, the whole pipeline into Excel. I learned a lot, struggled a lot, and got it done.
+As a sophomore on [FRC Team 1730 (Team Driven)](https://www.thebluealliance.com/team/1730/2023), I took over as the solo developer of the scouting app. My freshman year I'd served as a scout lead under seniors Heath Crump and Caden Findlay, who built that season's app while the team won the [Newton Division](https://www.thebluealliance.com/event/2022new) and reached [Einstein](https://www.thebluealliance.com/event/2022cmptx). I learned the ropes from them, and sophomore year I built the Android match app myself: Java, XML layouts, QR encoding, and the pipeline into Excel.
 
-Junior year (this repo), I kept the match app going for Crescendo and spotted pit scouting as a bottleneck, so I built a [second app](https://github.com/aamir-frc-scouting/frc-pit-scouting-app-2024) for it. Senior year I took it further: cross-platform Flutter apps that still export QR codes, scanned by a Python/customtkinter intake app into SQLite so strategy questions become SQL queries. — [Aamir Abatiyow](https://github.com/AamirAbatiyow)
+Junior year (this repo), I kept the match app going for Crescendo and spotted pit scouting as a bottleneck, so I built a [second app](https://github.com/aamir-frc-scouting/frc-pit-scouting-app-2024) for it. Senior year I rewrote both apps in Flutter. They still export QR codes, and from the Greater Kansas City Regional on, a Python/customtkinter intake app scanned them into SQLite so strategy questions became SQL queries.
+
+[Aamir Abatiyow](https://github.com/AamirAbatiyow)
 
 ## Screenshots
 
@@ -42,15 +44,15 @@ Rendered at 10" portrait tablet size, the devices the team scouted on.
 
 ## Features
 
-- **Multi-phase match tracking** — Dedicated screens for Autonomous, Teleoperated, and Endgame phases
-- **Game piece scoring** — Track Notes scored in Amp and Speaker during both Auto and Tele
-- **Endgame tracking** — Record Stage status (Park/Onstage/Spotlit), Harmony, and Trap
-- **Field position selection** — Visual field overlay for selecting robot starting position and driver station
-- **Validation flow** — Confirmation screen before QR generation prevents accidental data loss
-- **QR code export** — All 19 data fields encoded as JSON, displayed as scannable QR code
-- **Match auto-increment** — Match number automatically increments after each submission
-- **Free-text comments** — Per-phase comment fields for qualitative observations
-- **Offline-first** — No network required during competition
+- **Multi-phase match tracking**: Dedicated screens for Autonomous, Teleoperated, and Endgame phases
+- **Game piece scoring**: Track Notes scored in Amp and Speaker during both Auto and Tele
+- **Endgame tracking**: Record Stage status (Park/Onstage/Spotlit), Harmony, and Trap
+- **Field position selection**: Visual field overlay for selecting robot starting position and driver station
+- **Validation flow**: Confirmation screen before QR generation prevents accidental data loss
+- **QR code export**: All 19 data fields encoded as JSON, displayed as scannable QR code
+- **Match auto-increment**: Match number automatically increments after each submission
+- **Free-text comments**: Per-phase comment fields for qualitative observations
+- **Offline-first**: No network required during competition
 
 ## Usage Stats
 
@@ -100,7 +102,7 @@ flowchart LR
 
     subgraph Collection["📊 Collection"]
         SCAN[QR Scanner]
-        XLS[Excel Workbook<br/>Per-event Tabs]
+        XLS[Excel Workbook<br/>Filtering and Pivot Tables]
     end
 
     M & A & T & S --> R
@@ -187,36 +189,34 @@ This Java/Android + QR-to-Excel pipeline worked reliably for the 2024 season, bu
 
 **Pain points identified:**
 - Manual QR scanning into Excel was time-consuming between matches
-- No real-time data aggregation
-- Platform-specific (Android only)
-- No offline data persistence on device
+- Analysis was limited to filtering and pivot tables in Excel
+- Fixed, non-responsive XML layouts
 
 **2025 Rewrite (Flutter + SQL):**
-- Cross-platform Flutter apps (one codebase for Android + iOS)
-- Same QR transfer workflow, but scanned into a Python/customtkinter desktop intake app that validates each record
+- Flutter apps for match and pit scouting. Flutter can target other platforms, and the apps were used on Android tablets at events
+- Same QR transfer workflow, scanned into a Python/customtkinter desktop intake app that validates each record (from the Greater Kansas City Regional on)
 - SQLite instead of Excel tabs, so strategy questions become SQL queries
-- Offline-first architecture with persistent storage on device
 
 | Season | App | Stack | Scale |
 |--------|-----|-------|-------|
 | 2023 | [Match Scouting](https://github.com/aamir-frc-scouting/frc-scouting-app-2023) | Java/Android | 3 events, 58K data points |
 | 2024 | **Match Scouting** | Java/Android | 5 events, 55K data points |
 | 2024 | [Pit Scouting](https://github.com/aamir-frc-scouting/frc-pit-scouting-app-2024) | Java/Android | 230 teams scouted |
-| 2025 | [Match Scouting](https://github.com/aamir-frc-scouting/frc-scouting-app-2025) | Dart/Flutter | Cross-platform rewrite |
-| 2025 | [Pit Scouting](https://github.com/aamir-frc-scouting/frc_pit_scouting_app_2025) | Dart/Flutter | Cross-platform rewrite |
+| 2025 | [Match Scouting](https://github.com/aamir-frc-scouting/frc-scouting-app-2025) | Dart/Flutter | Flutter rewrite |
+| 2025 | [Pit Scouting](https://github.com/aamir-frc-scouting/frc_pit_scouting_app_2025) | Dart/Flutter | Flutter rewrite |
 
 ## Tech Stack
 
 | Component | Technology |
 |-----------|------------|
-| Language | Java 17 |
+| Language | Java (written for Java 8, build updated to Java 17 in 2026 for screenshot tests) |
 | Platform | Android (API 21+) |
 | UI | ConstraintLayout, Material Components |
 | QR Generation | ZXing (via local QRGenerator module) |
-| Build System | Gradle 8.6, AGP 8.3.2 |
+| Build System | Gradle 8.6, AGP 8.3.2 (updated in 2026) |
 | Screenshot Tests | [Paparazzi](https://github.com/cashapp/paparazzi) 1.3.4 |
 | Data Format | JSON encoded in QR |
-| Data Import | Excel VBA macros (external) |
+| Data Analysis | Excel (filtering and pivot tables) |
 
 ## License
 
