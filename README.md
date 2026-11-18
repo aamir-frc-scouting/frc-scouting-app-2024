@@ -193,7 +193,7 @@ This Java/Android + QR-to-Excel pipeline worked reliably for the 2024 season, bu
 - Fixed, non-responsive XML layouts
 
 **2025 Rewrite (Flutter + SQL):**
-- Flutter apps for match and pit scouting. Flutter can target other platforms, and the apps were used on Android tablets at events
+- Flutter apps for match and pit scouting, deployed to every scout's own phone, Android or iOS
 - Same QR transfer workflow, scanned into a Python/customtkinter desktop intake app that validates each record (from the Greater Kansas City Regional on)
 - SQLite instead of Excel tabs, so strategy questions become SQL queries
 
